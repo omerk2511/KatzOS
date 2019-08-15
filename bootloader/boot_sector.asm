@@ -1,6 +1,9 @@
 [bits 16]
 [org 0x7c00]
 
+	mov bp, 0x9000
+	mov sp, bp
+
 	mov bx, REAL_MODE_MSG
 	call print_string
 
