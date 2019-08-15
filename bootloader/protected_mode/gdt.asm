@@ -1,8 +1,8 @@
 gdt_start:
 
 gdt_null:
-	dw 0x0 				; 4 NULL bytes
-	dw 0x0 				; 4 NULL bytes
+	dd 0x0 				; 4 NULL bytes
+	dd 0x0 				; 4 NULL bytes
 
 gdt_code:
 	dw 0xffff 			; segment limit (bits 0-15)
