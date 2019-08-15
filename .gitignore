@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# OS compiled binary files
+bootloader/boot_sector.bin
