@@ -35,4 +35,4 @@ gdt_descriptor:
 
 
 CODE_SEG equ gdt_code - gdt_start 	; code segment index (0x08)
-DATA_SEG eqi gdt_data - gdt_start 	; data segmnet index (0x10)
+DATA_SEG equ gdt_data - gdt_start 	; data segmnet index (0x10)

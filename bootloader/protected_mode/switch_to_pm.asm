@@ -8,7 +8,7 @@ switch_to_pm:
 	lgdt [gdt_descriptor]
 
 	mov eax, cr0
-	or cr0, 0x01
+	or eax, 0x01
 	mov cr0, eax
 
 	jmp CODE_SEG:init_pm
