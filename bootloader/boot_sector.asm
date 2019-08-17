@@ -15,11 +15,11 @@ KERNEL_OFFSET equ 0x1000
 
 	call switch_to_pm
 
-%include "real_mode/print_string.asm"
-%include "real_mode/disk_load.asm"
-%include "protected_mode/switch_to_pm.asm"
-%include "protected_mode/gdt.asm"
-%include "protected_mode/print_string_pm.asm"
+%include "bootloader/real_mode/print_string.asm"
+%include "bootloader/real_mode/disk_load.asm"
+%include "bootloader/protected_mode/switch_to_pm.asm"
+%include "bootloader/protected_mode/gdt.asm"
+%include "bootloader/protected_mode/print_string_pm.asm"
 
 [bits 16]
 
