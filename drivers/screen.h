@@ -4,6 +4,7 @@
 #define DEFAULT_COLOR 0x07
 
 void clear_screen();
-void putc(char ch);
+void putc(char c);
+void puts(char *s);
 
 #endif

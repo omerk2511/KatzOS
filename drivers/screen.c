@@ -13,13 +13,14 @@ void clear_screen()
 	row = 0;
 	col = 0;
 
+	// screen scroll
 	// set cursor at row, col
 }
 
-void putc(char ch)
+void putc(char c)
 {
-	if(ch >= 0x20 && ch < 0x7f) {
-		video_memory[(row * 80 + col) * 2] = ch;
+	if(c >= 0x20 && c < 0x7f) {
+		video_memory[(row * 80 + col) * 2] = c;
 		video_memory[(row * 80 + col) * 2 + 1] = DEFAULT_COLOR;
 
 		col++;
@@ -29,7 +30,7 @@ void putc(char ch)
 			row++;
 		}
 	} else {
-		switch(ch) {
+		switch(c) {
 			case 0x0a: // '\n'
 				col = 0;
 				row++;				
@@ -64,6 +65,13 @@ void putc(char ch)
 		}
 	}
 
-	// if(row == 25) screen scrol
+	// if(row == 25) screen scroll
 	// set cursor at row, col
+}
+
+void puts(char *s)
+{
+	for(int i = 0; s[i] != '\0'; i++) {
+		putc(s[i]);
+	}
 }
