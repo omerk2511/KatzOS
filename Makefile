@@ -18,7 +18,7 @@ kernel.bin: kernel/kernel_entry.o ${OBJ}
 	gcc -m32 -ffreestanding -fno-pie -c $< -o $@
 
 %.o: %.asm
-	nasm -f elf $< -o $@
+	nasm -f elf32 $< -o $@
 
 %.bin: %.asm
 	nasm -f bin $< -o $@
