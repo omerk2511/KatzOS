@@ -1,4 +1,5 @@
 #include "screen.h"
+#include "../kernel/io.h"
 
 unsigned char *video_memory = (unsigned char *) 0xb8000;
 int row = 0, col = 0;
