@@ -10,5 +10,6 @@ void clear_screen();
 void putc(char c);
 void puts(char *s);
 void update_cursor();
+void scroll_screen();
 
 #endif

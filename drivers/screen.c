@@ -65,7 +65,13 @@ void putc(char c)
 		}
 	}
 
-	// if(row == 25) screen scroll
+	if(row == 25) {
+		scroll_screen();
+
+		row--;
+		col = 0;
+	}
+
 	update_cursor();
 }
 
@@ -85,4 +91,16 @@ void update_cursor()
 
 	port_byte_out(CTRL_PORT, 0x0e); // higher byte of the offset
 	port_byte_out(DATA_PORT, (unsigned char) (offset >> 8));
+}
+
+void scroll_screen()
+{
+	for(int i = 0; i < 80 * 24 * 2; i++) {
+		video_memory[i] = video_memory[i + 160];
+	}
+
+	for(int i = 80 * 24 * 2; i < 80 * 25 * 2; i += 2) {
+		video_memory[i] = ' ';
+		video_memory[i + 1] = DEFAULT_COLOR;
+	}
 }
