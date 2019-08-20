@@ -14,8 +14,7 @@ void clear_screen()
 	row = 0;
 	col = 0;
 
-	// screen scroll
-	// set cursor at row, col
+	update_cursor();
 }
 
 void putc(char c)
@@ -67,7 +66,7 @@ void putc(char c)
 	}
 
 	// if(row == 25) screen scroll
-	// set cursor at row, col
+	update_cursor();
 }
 
 void puts(char *s)
@@ -75,4 +74,15 @@ void puts(char *s)
 	for(int i = 0; s[i] != '\0'; i++) {
 		putc(s[i]);
 	}
+}
+
+void update_cursor()
+{
+	unsigned short offset = row * 80 + col;
+
+	port_byte_out(CTRL_PORT, 0x0f); // lower byte of the offset
+	port_byte_out(DATA_PORT, (unsigned char) (offset & 0xff));
+
+	port_byte_out(CTRL_PORT, 0x0e); // higher byte of the offset
+	port_byte_out(DATA_PORT, (unsigned char) (offset >> 8));
 }
