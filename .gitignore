@@ -52,5 +52,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# vscode automatic files
+.vscode/
+
 # OS binary files
 katzos-image
