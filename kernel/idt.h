@@ -4,7 +4,7 @@
 struct idt_entry_s {
     unsigned short lower_offset;
     unsigned short selector;
-    unsigned char zero;
+    unsigned char zeros;
     unsigned char flags;
     unsigned short higher_offset;
 } __attribute__((packed));
@@ -18,10 +18,8 @@ struct idt_info_s {
 
 typedef struct idt_info_s idt_info_t;
 
-typedef void (*isr_p)();
-
 void init_idt();
-void insert_idt_entry(int i, isr_p isr);
+void insert_idt_entry(int i, void *isr);
 
 extern void load_idt(idt_info_t *idt_info);
 
