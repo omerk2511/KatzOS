@@ -53,7 +53,7 @@ Mkfile.old
 dkms.conf
 
 # vscode automatic files
-.vscode/
+.vscode/*
 
 # OS binary files
 katzos-image
